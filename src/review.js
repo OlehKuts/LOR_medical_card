@@ -109,7 +109,7 @@ export const Review = ({ params, current }) => {
             </div>
             <div className="flexi headers">
               <Block
-                header={`у складі ${params.preOperationExamination}, ${doctor}`}   
+                header={`у складі: ${params.preOperationExamination}, лікар ${doctor}`}   
                  content=""
               />
             </div>
