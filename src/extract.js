@@ -58,7 +58,6 @@ export const Extract = ({  params, current }) => {
             <Block
               header={`${params.medicalCard} №:`}
               content={cardNumber}
-              size="22px"
             />
           </div>
           <Block header="П.І.Б хворого: " content={current.name} />
