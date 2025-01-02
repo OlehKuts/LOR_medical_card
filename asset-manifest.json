@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/LOR_medical_card/static/css/main.d3347043.css",
-    "main.js": "/LOR_medical_card/static/js/main.8b72e822.js",
+    "main.css": "/LOR_medical_card/static/css/main.4c06ed00.css",
+    "main.js": "/LOR_medical_card/static/js/main.08f99f06.js",
     "index.html": "/LOR_medical_card/index.html",
-    "main.d3347043.css.map": "/LOR_medical_card/static/css/main.d3347043.css.map",
-    "main.8b72e822.js.map": "/LOR_medical_card/static/js/main.8b72e822.js.map"
+    "main.4c06ed00.css.map": "/LOR_medical_card/static/css/main.4c06ed00.css.map",
+    "main.08f99f06.js.map": "/LOR_medical_card/static/js/main.08f99f06.js.map"
   },
   "entrypoints": [
-    "static/css/main.d3347043.css",
-    "static/js/main.8b72e822.js"
+    "static/css/main.4c06ed00.css",
+    "static/js/main.08f99f06.js"
   ]
 }
