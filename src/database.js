@@ -437,7 +437,7 @@ export const bloodTestExponents = [
 export const urineTestExponents = [
   "Колір",
   "Прозорість",
-  "Питома вага",
+  "Пит. вага",
   "pH",
   "Білок",
   "Лейкоцити",

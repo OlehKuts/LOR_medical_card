@@ -16,6 +16,7 @@ export const Review = ({ params, current }) => {
     operationDate, operationTime, operationContent, duration, surgeon,
     assistant, anesthetist, lastTime, finalDiagnosis, drugs, examinations
   } = current;
+  const {mutualExamination, preOperationExamination, doctorType, medicalCard, patientType} = params;
   const splittedExaminations = examinations ? examinations.split(",") : initialExaminations.split(",");
   const _anestesiaType =
     anestesiaType === "Місцеве"
@@ -44,20 +45,20 @@ export const Review = ({ params, current }) => {
     <div id="review">
       <div className="flexi headers">
         <Block
-          header={`${params.mutualExamination}`}
+          header={`${mutualExamination}`}
           content=""
         />
       </div>
       <div className="flexi headers">
         <Block header="Дата:" content={reviewDate} />
-        <Block header={`${params.doctorType}:`} content={doctor} />
+        <Block header={`${doctorType}:`} content={doctor} />
       </div>
       <div className="flexi headers">
         <Block
-          header={`${params.medicalCard} №:`}
+          header={`${medicalCard} №:`}
           content={cardNumber}
         />
-        <Block header={`${params.patientType}:`} content={current.name} />
+        <Block header={`${patientType}:`} content={current.name} />
       </div>
       <Block header="Скарги:" content={complaintsContent} />
       <Block
@@ -109,7 +110,7 @@ export const Review = ({ params, current }) => {
             </div>
             <div className="flexi headers">
               <Block
-                header={`у складі: ${params.preOperationExamination}, лікар ${doctor}`}   
+                header={`у складі: ${preOperationExamination}, лікар ${doctor}`}   
                  content=""
               />
             </div>
