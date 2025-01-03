@@ -32,12 +32,12 @@ import { isJsonString, exceedReminder } from "./utils/utils";
 
 export const Main = () => {
   // localStorage.setItem("basicParams", JSON.stringify(initialParams));
-  const basicParams = JSON.parse(localStorage.getItem("basicParams"));
+  const basicParams = JSON.parse(localStorage.getItem("basicParams_lor"));
   const [currentParams, setCurrentParams] = useState(
     basicParams || initialParams
   );
   const changeParams = (newParams) => {
-    localStorage.setItem("basicParams", JSON.stringify(newParams));
+    localStorage.setItem("basicParams_lor", JSON.stringify(newParams));
     setCurrentParams(newParams);
     alert("Внесені зміни застосовано!");
     setShowMenuPart(setOneTrueInArray(showMenuPart, 0));
