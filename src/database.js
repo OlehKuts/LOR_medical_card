@@ -130,13 +130,6 @@ export const drugName5List = [
   { name: "Феністил", value: "Феністил" },
   { name: "L-лізину есцинат", value: "L-лізину есцинат" }
 ];
-export const surgeons = [{ name: "Хірург", value: "" }].concat(
-  doctors.slice(1)
-);
-export const assistants = [
-  { name: "Асистент", value: "" },
-  { name: "відсутній", value: "-" }
-].concat(doctors.slice(1));
 export const anesthetistList = [
   { name: "Анестезіолог", value: "" },
   { name: "відсутній", value: " - " },
