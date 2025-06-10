@@ -24,6 +24,7 @@ import {EditDiaryForm} from "./components/EditDiaryForm"
 
 export const PatientItem = ({
   idx,
+  limit,
   patient,
   onRemove,
   onSetCurrent,
@@ -396,7 +397,7 @@ export const PatientItem = ({
   }, [residenceFeatures.town]);
   return (
     <>
-      {idx < 100 && (
+      {idx >= limit.low && idx <= limit.high && (
         <div className="patientLine" style={{ ...props }}>
           <div id="cardNumberinList">
             {" "}
