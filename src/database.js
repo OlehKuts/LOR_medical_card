@@ -418,7 +418,6 @@ export const editTypeList = [
 export const bloodTestExponents = [
   "Hb, г/л",
   "Er, T/л	",
-  "КП",
   "Leu, Г/л",
   "пал, %",
   "сегм, %",

@@ -14,7 +14,6 @@ import { operationNameCreator } from "./functions/operationNameCreator";
 import { operationContentCreator } from "./functions/operationContentCreator";
 import { lastTimeChecker } from "./functions/lastTimeChecker";
 import { recommendationsCreator } from "./functions/recommendationsCreator";
-import { colorIndexCounter } from "./functions/colorIndexCounter";
 import { monoCounter } from "./functions/monoCounter";
 import { diaryListCreator } from "./functions/diaryListCreator";
 import { respiratoryRateCounter } from "./functions/respiratoryRateCounter";
@@ -451,7 +450,6 @@ export const patientsReducer = (patients, action) => {
               ),
               hb,
               er,
-              colorIndex: colorIndexCounter(hb, er),
               leu,
               pal,
               segm,
@@ -467,7 +465,6 @@ export const patientsReducer = (patients, action) => {
               bloodTest: [
                 hb,
                 er,
-                colorIndexCounter(hb, er),
                 leu,
                 pal,
                 segm,
