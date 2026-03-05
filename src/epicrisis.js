@@ -4,24 +4,53 @@ import { Block } from "./block";
 import { BlockList } from "./blockList";
 import { Table } from "./table";
 import { Text } from "./text";
-import { bloodTestExponents, urineTestExponents } from "./database";
+import {
+  bloodTestExponents,
+  urineTestExponents,
+  biochemicalTestExponents,
+} from "./database";
 import { bloodTestChecker } from "./functions/bloodTestChecker";
 import { stringCapitalizer } from "./utils/utils";
 
-export const Epicrisis = ({  params, current }) => {
-  const {drugs, analyseHiddenFields, bloodGroup, bloodTest,
-    epicrisisDataSend, cardNumber, dischargeDate, complaintsContent,
-    shortStatusContent, anamnesisMorbiContent, reviewDate, condition,
-    finalDiagnosis, operationFree, anestesiaTypeModified,
-    operationDate, operationName, diagnosis, recommendations,
-    secondOperation, urineTest, glucose, enterobioz, dung,
-    otherExaminations, wasViolation, rezusFactor, planned, doctor
+export const Epicrisis = ({ params, current }) => {
+  const {
+    drugs,
+    analyseHiddenFields,
+    bloodGroup,
+    bloodTest,
+    epicrisisDataSend,
+    cardNumber,
+    dischargeDate,
+    complaintsContent,
+    shortStatusContent,
+    anamnesisMorbiContent,
+    reviewDate,
+    condition,
+    finalDiagnosis,
+    operationFree,
+    anestesiaTypeModified,
+    operationDate,
+    operationName,
+    diagnosis,
+    recommendations,
+    secondOperation,
+    urineTest,
+    glucose,
+    enterobioz,
+    dung,
+    otherExaminations,
+    wasViolation,
+    rezusFactor,
+    planned,
+    doctor,
+    biochemicalData,
   } = current;
   const filteredDrugs = drugs.filter((drug) => drug !== "");
   const {
     bloodTestHidden = false,
     urineHidden = false,
     glucoseHidden = false,
+    biochemicalHidden = false,
   } = analyseHiddenFields || {};
   const abNormalList = bloodTestChecker(bloodTest);
   return (
@@ -29,10 +58,7 @@ export const Epicrisis = ({  params, current }) => {
       {epicrisisDataSend && (
         <>
           <div className="flexi headers">
-            <Block
-              header={`${params.medicalCard} №:`}
-              content={cardNumber}
-            />
+            <Block header={`${params.medicalCard} №:`} content={cardNumber} />
             <Block header={`${params.patientType}:`} content={current.name} />
           </div>
           <div className="flexi headers">
@@ -54,10 +80,7 @@ export const Epicrisis = ({  params, current }) => {
             }. ${stringCapitalizer(shortStatusContent)}`}
           />
 
-          <Block
-            header="Діагноз:"
-            content={finalDiagnosis || diagnosis}
-          />
+          <Block header="Діагноз:" content={finalDiagnosis || diagnosis} />
           {!operationFree && (
             <>
               <Block
@@ -72,7 +95,10 @@ export const Epicrisis = ({  params, current }) => {
             </>
           )}
           {filteredDrugs.length !== 0 ? (
-            <BlockList header="Медикаментозне лікування:" content={filteredDrugs} />
+            <BlockList
+              header="Медикаментозне лікування:"
+              content={filteredDrugs}
+            />
           ) : (
             <Block header="Медикаментозне лікування відсутнє." content="" />
           )}
@@ -116,48 +142,40 @@ export const Epicrisis = ({  params, current }) => {
               </div>
             </>
           )}
+          {!biochemicalHidden && planned ? (
+            <>
+              <div className="flexi headers">
+                <Block
+                  header="Біохімічний аналіз крові"
+                  content=""
+                  size="22px"
+                />
+              </div>
+              <div className="flexi headers">
+                <Table
+                  headerList={biochemicalTestExponents}
+                  contentList={Object.values(biochemicalData)}
+                  size="18px"
+                />
+              </div>
+            </>
+          ) : null}
           {!glucoseHidden && (
             <Block header="Глюкоза крові:" content={`${glucose}.`} />
           )}
-          <div className="block">
-            {enterobioz !== `не визначався` && (
-              <>
-                <Text fontWeight="bold">
-                  Зішкріб на ентеробіоз:
-                </Text>
-                {""}
-                <span id="content"> {enterobioz}. </span>
-              </>
-            )}
-            {dung !== `не визначався` && (
-              <>
-                <Text fontWeight="bold">
-                  Кал на я/г:
-                </Text>
-                {""}
-                <span id="content"> {dung}. </span>
-              </>
-            )}
-          </div>
-          {planned && (
+          {planned && bloodGroup && rezusFactor ? (
             <div className="block">
-              <Text fontWeight="bold">
-                Група крові:
-              </Text>
+              <Text fontWeight="bold">Група крові:</Text>
               {""}
               <span id="content"> {bloodGroup}, </span>
-              <Text fontWeight="bold">
-                резус-фактор:
-              </Text>
+              <Text fontWeight="bold">резус-фактор:</Text>
               {""}
               <span id="content"> {rezusFactor}. </span>
             </div>
-          )}
+          ) : null}
           {otherExaminations && (
             <div className="block">
-              <Text fontWeight="bold">
-                Інші обстеження:
-              </Text>
+              <Text fontWeight="bold">Інші обстеження:</Text>
               {""}
               <span id="content"> {otherExaminations}</span>
             </div>

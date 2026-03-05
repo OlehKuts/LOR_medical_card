@@ -1,12 +1,12 @@
 // import uuid from "uuid/v4";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import { complaintsCreator } from "./functions/complaintsCreator";
 import { anamnesisMorbiCreator } from "./functions/anamnesisMorbiCreator";
 import { anamnesisVitaeCreator } from "./functions/anamnesisVitaeCreator";
 import { statusPraesensCreator } from "./functions/statusPraesensCreator";
 import {
   additionStatusCreator,
-  shortStatusCreator
+  shortStatusCreator,
 } from "./functions/additionStatusCreator";
 import { diagnosisCreator } from "./functions/diagnosisCreator";
 import { treatmentCreator } from "./functions/treatmentCreator";
@@ -27,11 +27,11 @@ import {
   noseCreator,
   laryngoscopyCreator,
   oropharyngoscopyCreator,
-  otoscopyCreator
+  otoscopyCreator,
 } from "./functions/statusLocalisCreators";
 import { minutesToHoursConverter } from "./minutesConverter";
 import { patientTemplate } from "./templates";
-import { initialExaminations } from './database';
+import { initialExaminations } from "./database";
 
 export const PATIENTS_ACTIONS = {
   ADD: "add",
@@ -41,7 +41,7 @@ export const PATIENTS_ACTIONS = {
   OPERATIONADD: "operationadd",
   EDIT: "edit",
   EDITDAY: "editday",
-  IMPORT: "import"
+  IMPORT: "import",
 };
 
 export const initialState = () => {
@@ -51,25 +51,131 @@ export const initialState = () => {
 };
 
 export const patientsReducer = (patients, action) => {
-  const { payload, type, disease,startDay, startMonth, startYear, cardNumber, doctor,
-    start1, start2, pregnancy, childbirth, birthWeight, condition, weight, age, drugName1,
-    drugName2, drugName3, drugName4, drugName5, appointment, appointment2, appointment3,
-    protocolNumber, operationDate, operationTime, duration, surgeon, assistant, anesthetist,
-    woundArea, woundSide, injuryDate, injuryTime, injuryReason, woundType, woundLength,
-    woundWidth, woundDepth, woundForm, woundLedges, woundBleeding, woundAliens, sutureType,
-    sutureMaterial, sutureSize, operationFree, neoplasmType, neoplasmArea, neoplasmSide, growthRate,
-    neoplasmSurface, neoplasmMovability, neoplasmPoignancy, neoplasmConsistance, neoplasmDiameter,
-    neoplasmColor, neoplasmBorders, neoplasmAboveSurface, neoplasmSurfaceAlter, neoplasmForm,
-    paratonsilarAbscessSide, anestesiaType, abscessType, abscessArea, abscessSide,
-    abscessReason, coblation, acuteOtitisSide, acuteOtitisType, noseFractureSide, tampon,
-    mastoiditisSide, isOtitisComplication, mastoiditisOperationType, sinusitisSide,
-    sinusitisType, sinusitisVariety, sinusitisCT, septumCurvatureSide, otitisTypeOperation,
-    hearingLossType,hearingLossSide, hearingLossDegree, spokenLeft, spokenRight, whisperLeft,
-    whisperRight, _id, lastDay, lastMonth, lastYear, hb, er, leu, pal, segm, eoz, limf, rse,
-    uColor, uOpacity, uWeight, uPh, uProtein, uLeu, uEp1, uEp2, uOther, glucose, enterobioz,
-    dung, bloodGroup, rezusFactor, wasViolation, analyseHiddenFields, finalDiagnosis, birthDate,
-    residence, editType, editedValue, patientId, day
-   } = action;
+  const {
+    payload,
+    type,
+    disease,
+    startDay,
+    startMonth,
+    startYear,
+    cardNumber,
+    doctor,
+    start1,
+    start2,
+    pregnancy,
+    childbirth,
+    birthWeight,
+    condition,
+    weight,
+    age,
+    drugName1,
+    drugName2,
+    drugName3,
+    drugName4,
+    drugName5,
+    appointment,
+    appointment2,
+    appointment3,
+    protocolNumber,
+    operationDate,
+    operationTime,
+    duration,
+    surgeon,
+    assistant,
+    anesthetist,
+    woundArea,
+    woundSide,
+    injuryDate,
+    injuryTime,
+    injuryReason,
+    woundType,
+    woundLength,
+    woundWidth,
+    woundDepth,
+    woundForm,
+    woundLedges,
+    woundBleeding,
+    woundAliens,
+    sutureType,
+    sutureMaterial,
+    sutureSize,
+    operationFree,
+    neoplasmType,
+    neoplasmArea,
+    neoplasmSide,
+    growthRate,
+    neoplasmSurface,
+    neoplasmMovability,
+    neoplasmPoignancy,
+    neoplasmConsistance,
+    neoplasmDiameter,
+    neoplasmColor,
+    neoplasmBorders,
+    neoplasmAboveSurface,
+    neoplasmSurfaceAlter,
+    neoplasmForm,
+    paratonsilarAbscessSide,
+    anestesiaType,
+    abscessType,
+    abscessArea,
+    abscessSide,
+    abscessReason,
+    coblation,
+    acuteOtitisSide,
+    acuteOtitisType,
+    noseFractureSide,
+    tampon,
+    mastoiditisSide,
+    isOtitisComplication,
+    mastoiditisOperationType,
+    sinusitisSide,
+    sinusitisType,
+    sinusitisVariety,
+    sinusitisCT,
+    septumCurvatureSide,
+    otitisTypeOperation,
+    hearingLossType,
+    hearingLossSide,
+    hearingLossDegree,
+    spokenLeft,
+    spokenRight,
+    whisperLeft,
+    whisperRight,
+    _id,
+    lastDay,
+    lastMonth,
+    lastYear,
+    hb,
+    er,
+    leu,
+    pal,
+    segm,
+    eoz,
+    limf,
+    rse,
+    uColor,
+    uOpacity,
+    uWeight,
+    uPh,
+    uProtein,
+    uLeu,
+    uEp1,
+    uEp2,
+    uOther,
+    glucose,
+    bloodGroup,
+    rezusFactor,
+    wasViolation,
+    analyseHiddenFields,
+    finalDiagnosis,
+    birthDate,
+    residence,
+    editType,
+    editedValue,
+    patientId,
+    day,
+    biochemicalData,
+  } = action;
   switch (type) {
     case PATIENTS_ACTIONS.IMPORT:
       return payload.importedPatients;
@@ -85,7 +191,7 @@ export const patientsReducer = (patients, action) => {
           doctor,
           start1,
           start2,
-          pregnancy: pregnancy,     
+          pregnancy: pregnancy,
           childbirth,
           birthWeight,
           condition,
@@ -101,7 +207,7 @@ export const patientsReducer = (patients, action) => {
             treatmentCreator(drugName5, age, weight),
             appointment,
             appointment2,
-            appointment3
+            appointment3,
           ],
           drugName1,
           drugName2,
@@ -157,11 +263,11 @@ export const patientsReducer = (patients, action) => {
           epicrisisDataSend: false,
           extractDataSend: false,
           anestesiaType,
-           abscessType,
-           abscessArea,
-           abscessSide,
+          abscessType,
+          abscessArea,
+          abscessSide,
           abscessReason,
-           coblation,
+          coblation,
           acuteOtitisSide,
           acuteOtitisType,
           noseFractureSide,
@@ -196,7 +302,7 @@ export const patientsReducer = (patients, action) => {
             sinusitisSide,
             paratonsilarAbscessSide,
             hearingLossSide,
-            age
+            age,
           ),
           anamnesisMorbiContent: anamnesisMorbiCreator(
             disease,
@@ -209,40 +315,33 @@ export const patientsReducer = (patients, action) => {
             abscessReason,
             growthRate,
             sinusitisType,
-            sinusitisVariety
+            sinusitisVariety,
           ),
           anamnesisVitaeContent: anamnesisVitaeCreator(
             pregnancy,
             childbirth,
-            birthWeight
+            birthWeight,
           ),
-          statusPraesensContent: statusPraesensCreator(
-            condition,
-            age
-          ),
-          nose: noseCreator(
-            disease,
-            noseFractureSide,
-            sinusitisType
-          ),
+          statusPraesensContent: statusPraesensCreator(condition, age),
+          nose: noseCreator(disease, noseFractureSide, sinusitisType),
           rhinoscopy: rhinoscopyCreator(
             disease,
             noseFractureSide,
             septumCurvatureSide,
             sinusitisType,
             sinusitisSide,
-            sinusitisVariety
+            sinusitisVariety,
           ),
           oropharyngoscopy: oropharyngoscopyCreator(
             disease,
-            paratonsilarAbscessSide
+            paratonsilarAbscessSide,
           ),
           laryngoscopy: laryngoscopyCreator(disease),
           otoscopy: otoscopyCreator(
             disease,
             acuteOtitisSide,
             mastoiditisSide,
-            acuteOtitisType
+            acuteOtitisType,
           ),
 
           shortStatusContent: shortStatusCreator(
@@ -281,7 +380,7 @@ export const patientsReducer = (patients, action) => {
             sinusitisVariety,
             sinusitisCT,
             acuteOtitisType,
-            paratonsilarAbscessSide
+            paratonsilarAbscessSide,
           ),
           additionStatus: additionStatusCreator(
             disease,
@@ -312,7 +411,7 @@ export const patientsReducer = (patients, action) => {
             neoplasmSurfaceAlter,
             sinusitisType,
             sinusitisSide,
-            sinusitisCT
+            sinusitisCT,
           ),
           diagnosis: diagnosisCreator(
             disease,
@@ -336,7 +435,7 @@ export const patientsReducer = (patients, action) => {
             paratonsilarAbscessSide,
             hearingLossType,
             hearingLossSide,
-            hearingLossDegree
+            hearingLossDegree,
           ),
           finalDiagnosis: diagnosisCreator(
             disease,
@@ -360,7 +459,7 @@ export const patientsReducer = (patients, action) => {
             paratonsilarAbscessSide,
             hearingLossType,
             hearingLossSide,
-            hearingLossDegree
+            hearingLossDegree,
           ),
           operationName: operationNameCreator(
             disease,
@@ -376,7 +475,7 @@ export const patientsReducer = (patients, action) => {
             mastoiditisSide,
             mastoiditisOperationType,
             acuteOtitisType,
-            paratonsilarAbscessSide
+            paratonsilarAbscessSide,
           ),
           operationContent: operationContentCreator(
             disease,
@@ -395,7 +494,7 @@ export const patientsReducer = (patients, action) => {
             otitisTypeOperation,
             mastoiditisSide,
             mastoiditisOperationType,
-            paratonsilarAbscessSide
+            paratonsilarAbscessSide,
           ),
           heartRate: heartRateCounter(age),
           respiratoryRate: respiratoryRateCounter(age),
@@ -411,13 +510,13 @@ export const patientsReducer = (patients, action) => {
             sinusitisSide,
             acuteOtitisType,
             sinusitisVariety,
-            age
+            age,
           ),
           lastDayContent: lastDayCreator(
             disease,
             mastoiditisSide,
             mastoiditisOperationType,
-            age
+            age,
           ),
           diaryList: [
             {
@@ -426,9 +525,10 @@ export const patientsReducer = (patients, action) => {
               id: Math.random(),
               generalStatus: "Загальний стан дитини близький до задовільного.",
               localStatus: "Обличчя симетричне",
-            },]
+            },
+          ],
         },
-        ...patients
+        ...patients,
       ];
     case PATIENTS_ACTIONS.REMOVE:
       return patients.filter((patient) => _id !== patient._id);
@@ -446,7 +546,7 @@ export const patientsReducer = (patients, action) => {
                 lastDay,
                 lastMonth,
                 lastYear,
-                patient
+                patient,
               ),
               hb,
               er,
@@ -455,13 +555,9 @@ export const patientsReducer = (patients, action) => {
               segm,
               eoz,
               limf,
-              mono: monoCounter(
-                pal,
-                segm,
-                eoz,
-                limf
-              ),
+              mono: monoCounter(pal, segm, eoz, limf),
               rse,
+              biochemicalData,
               bloodTest: [
                 hb,
                 er,
@@ -471,7 +567,7 @@ export const patientsReducer = (patients, action) => {
                 eoz,
                 limf,
                 monoCounter(pal, segm, eoz, limf),
-                rse
+                rse,
               ],
               uColor,
               uOpacity,
@@ -490,11 +586,9 @@ export const patientsReducer = (patients, action) => {
                 uLeu,
                 uEp1,
                 uEp2,
-                uOther
+                uOther,
               ],
               glucose: `${glucose} ммоль/л`,
-              enterobioz,
-              dung,
               bloodGroup,
               rezusFactor,
               wasViolation,
@@ -503,10 +597,10 @@ export const patientsReducer = (patients, action) => {
               finalDiagnosis,
               anestesiaTypeModified: `${patient.anestesiaType[0].toLowerCase()}${patient.anestesiaType.slice(
                 1,
-                patient.anestesiaType.length - 1
-              )}им`
+                patient.anestesiaType.length - 1,
+              )}им`,
             }
-          : patient
+          : patient,
       );
     case PATIENTS_ACTIONS.EXTRACTADD:
       return patients.map((patient) =>
@@ -518,20 +612,20 @@ export const patientsReducer = (patients, action) => {
               extractDataSend: true,
               anestesiaTypeModified: `${patient.anestesiaType[0].toLowerCase()}${patient.anestesiaType.slice(
                 1,
-                patient.anestesiaType.length - 1
-              )}им`
+                patient.anestesiaType.length - 1,
+              )}им`,
             }
-          : patient
+          : patient,
       );
     case PATIENTS_ACTIONS.OPERATIONADD:
       return patients.map((patient) =>
         patient._id === _id
           ? {
               ...patient,
-               protocolNumber,
-               anestesiaType,
-               operationDate,
-               operationTime,
+              protocolNumber,
+              anestesiaType,
+              operationDate,
+              operationTime,
               operationContent: operationContentCreator(
                 patient.disease,
                 sutureType,
@@ -549,7 +643,7 @@ export const patientsReducer = (patients, action) => {
                 patient.otitisTypeOperation,
                 patient.mastoiditisSide,
                 patient.mastoiditisOperationType,
-                patient.paratonsilarAbscessSide
+                patient.paratonsilarAbscessSide,
               ),
               duration: minutesToHoursConverter(duration),
               surgeon,
@@ -557,31 +651,31 @@ export const patientsReducer = (patients, action) => {
               anesthetist,
               lastTime: lastTimeChecker(operationTime),
               operationDataSend: true,
-              finalDiagnosis
+              finalDiagnosis,
             }
-          : patient
+          : patient,
       );
     case PATIENTS_ACTIONS.EDIT:
       return patients.map((patient) =>
         patient._id === _id
           ? patientEditor(editType, patient, editedValue)
-          : patient
+          : patient,
       );
-      case PATIENTS_ACTIONS.EDITDAY:
-        return patients.map((patient) =>
-          patient._id === patientId
-            ? {
-                ...patient,
-                diaryList: patient.diaryList.map((item) => {
-                  if (Number(day.id) === Number(item.id)) {
-                    return day;
-                  } else {
-                    return item;
-                  }
-                }),
-              }
-            : patient
-        );
+    case PATIENTS_ACTIONS.EDITDAY:
+      return patients.map((patient) =>
+        patient._id === patientId
+          ? {
+              ...patient,
+              diaryList: patient.diaryList.map((item) => {
+                if (Number(day.id) === Number(item.id)) {
+                  return day;
+                } else {
+                  return item;
+                }
+              }),
+            }
+          : patient,
+      );
     default:
       throw new Error();
   }

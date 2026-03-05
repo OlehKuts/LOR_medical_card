@@ -7,8 +7,6 @@ import T from "prop-types";
 import {
   uColorList,
   uOpacityList,
-  enterobiozList,
-  dungList,
   bloodGroupList,
   rezusFactorList,
   editTypeList,
@@ -20,7 +18,7 @@ import { numArrayCreator } from "./functions/numArrayCreator";
 import { getResidence, setOneTrueInArray } from "./utils/utils";
 import { MacInput } from "./UI/input/MacInput";
 import { MacButton } from "./UI/button/MacButton";
-import {EditDiaryForm} from "./components/EditDiaryForm"
+import { EditDiaryForm } from "./components/EditDiaryForm";
 
 export const PatientItem = ({
   idx,
@@ -39,14 +37,44 @@ export const PatientItem = ({
   onCancelEditDiary,
   ...props
 }) => {
-  const {diaryList, usedNewDiary, planned, epicrisisDataSend, disease,
-    _id, cardNumber, reviewDate, doctor, complaintsContent, anamnesisMorbiContent,
-    anamnesisVitaeContent, statusPraesensContent, additionStatus, nose,
-    oropharyngoscopy, otoscopy, laryngoscopy, rhinoscopy, diagnosis,
-    operationName, operationContent, drugName1, drugName2, drugName3, 
-    drugName4, drugName5, appointment, appointment2, appointment3,
-    shortStatusContent, secondOperation, recommendations, otherExaminations,
-    extractDataSend, operationDataSend, examinations
+  const {
+    diaryList,
+    usedNewDiary,
+    planned,
+    epicrisisDataSend,
+    disease,
+    _id,
+    cardNumber,
+    reviewDate,
+    doctor,
+    complaintsContent,
+    anamnesisMorbiContent,
+    anamnesisVitaeContent,
+    statusPraesensContent,
+    additionStatus,
+    nose,
+    oropharyngoscopy,
+    otoscopy,
+    laryngoscopy,
+    rhinoscopy,
+    diagnosis,
+    operationName,
+    operationContent,
+    drugName1,
+    drugName2,
+    drugName3,
+    drugName4,
+    drugName5,
+    appointment,
+    appointment2,
+    appointment3,
+    shortStatusContent,
+    secondOperation,
+    recommendations,
+    otherExaminations,
+    extractDataSend,
+    operationDataSend,
+    examinations,
   } = patient;
   const year = new Date().getFullYear();
   const initDate = new Date();
@@ -112,7 +140,7 @@ export const PatientItem = ({
   const [showFirstLineEditForm, setShowFirstLineEditForm] = useState(true);
   const onShowEditForm = () => {
     if (editType === "") return;
-    setEditedValue(eTypeChecker( editType));
+    setEditedValue(eTypeChecker(editType));
     setShowEditForm(true);
     setShowFirstLineEditForm(false);
   };
@@ -131,6 +159,16 @@ export const PatientItem = ({
   const [eoz, setEoz] = useState(null);
   const [limf, setLimf] = useState(null);
   const [rse, setRse] = useState(null);
+  const [biochemicalData, setBiochemicalData] = useState({
+    overallProtein: null,
+    creatinin: null,
+    bloodUrea: null,
+    alt: null,
+    ast: null,
+    kalium: null,
+    natrium: null,
+    calcium: null,
+  });
   const [uColor, setUColor] = useState(uColorList[0]);
   const [uOpacity, setUOpacity] = useState(uOpacityList[0]);
   const [uWeight, setUWeight] = useState("м/с");
@@ -142,15 +180,13 @@ export const PatientItem = ({
   const [uEp2, setUEp2] = useState("0-1");
   const [uOther, setUOther] = useState("-");
   const [glucose, setGlucose] = useState(4);
-  const [enterobioz, setEnterobioz] = useState(enterobiozList[0].value);
-  const [dung, setDung] = useState(dungList[0].value);
   const [bloodGroup, setBloodGroup] = useState(bloodGroupList[0].value);
   const [rezusFactor, setRezusFactor] = useState(rezusFactorList[0].value);
-  const [showHiddenFieldsLine, setShowHiddenFieldsLine] = useState(false);
   const [analyseHiddenFields, setAnalyseHiddenFields] = useState({
     bloodTestHidden: false,
     urineHidden: false,
     glucoseHidden: false,
+    biochemicalHidden: false,
   });
   const [wasViolation, setWasViolation] = useState(false);
   const onWasViolationChange = () => {
@@ -185,14 +221,13 @@ export const PatientItem = ({
       uEp1,
       uEp2,
       glucose,
-      enterobioz,
-      dung,
       bloodGroup,
       rezusFactor,
       uOther,
       wasViolation,
       finalDiagnosis,
-      analyseHiddenFields
+      analyseHiddenFields,
+      biochemicalData,
     );
     setShowDischargeForm(false);
   };
@@ -236,14 +271,14 @@ export const PatientItem = ({
       anesthetist,
       anestesiaType,
       operationDataSend,
-      finalDiagnosis
+      finalDiagnosis,
     );
     setShowOperationForm(false);
   };
 
   const [showEditLine, setShowEditLine] = useState(false);
   const [showEditFinal, setShowEditFinal] = useState(false);
-  
+
   const [protocolNumber, setProtocolNumber] = useState(null);
 
   const [operationDate, setOperationDate] = useState(date);
@@ -253,7 +288,7 @@ export const PatientItem = ({
   const [assistant, setAssistant] = useState(assistants[0].value);
   const [anesthetist, setAnesthetist] = useState(anesthetistList[0].value);
   const [editType, setEditType] = useState(editTypeList[0].value);
-  const eTypeChecker = ( type) => {
+  const eTypeChecker = (type) => {
     if (type === "") return;
     let result = "";
     switch (type) {
@@ -356,9 +391,9 @@ export const PatientItem = ({
       case "otherExaminations":
         result = otherExaminations;
         break;
-        case "examinations":
-          result = examinations;
-          break;
+      case "examinations":
+        result = examinations;
+        break;
       default:
         throw new Error();
     }
@@ -413,26 +448,18 @@ export const PatientItem = ({
             onClick={onShowOperationForm}
             style={{
               backgroundColor:
-                operationDataSend || !planned
-                  ? "#3d3d3d"
-                  : "gainsboro",
+                operationDataSend || !planned ? "#3d3d3d" : "gainsboro",
             }}
           >
             <Icon
               name="operation"
-              color={
-                operationDataSend || !planned
-                  ? "white"
-                  : "black"
-              }
+              color={operationDataSend || !planned ? "white" : "black"}
             />
           </button>
           <button
             onClick={onShowDischargeForm}
             style={{
-              backgroundColor: epicrisisDataSend
-                ? "#3d3d3d"
-                : "gainsboro",
+              backgroundColor: epicrisisDataSend ? "#3d3d3d" : "gainsboro",
               color: epicrisisDataSend ? "coral" : "black",
             }}
           >
@@ -441,9 +468,7 @@ export const PatientItem = ({
           <button
             onClick={onShowExtractForm}
             style={{
-              backgroundColor: extractDataSend
-                ? "#3d3d3d"
-                : "gainsboro",
+              backgroundColor: extractDataSend ? "#3d3d3d" : "gainsboro",
               color: extractDataSend ? "coral" : "black",
             }}
           >
@@ -639,23 +664,6 @@ export const PatientItem = ({
                 onChange={(e) => setGlucose(e.target.value)}
                 placeholder="Глюкоза..."
               />
-              <select
-                value={enterobioz}
-                onChange={(e) => setEnterobioz(e.target.value)}
-              >
-                {enterobiozList.map((item, idx) => (
-                  <option key={idx} value={item.value}>
-                    {item.name}
-                  </option>
-                ))}
-              </select>
-              <select value={dung} onChange={(e) => setDung(e.target.value)}>
-                {dungList.map((item, idx) => (
-                  <option key={idx} value={item.value}>
-                    {item.name}
-                  </option>
-                ))}
-              </select>
               {planned && (
                 <>
                   <select
@@ -681,64 +689,164 @@ export const PatientItem = ({
                   </select>
                 </>
               )}
-              {!showHiddenFieldsLine && (
-                <Icon
-                  name="arrowDown"
-                  size="50px"
-                  onClick={() => setShowHiddenFieldsLine(true)}
-                  color="mediumpurple"
-                />
-              )}
             </p>
+            {planned ? (
+              <p className="flexBetween smallLine">
+                <MacInput
+                  type="number"
+                  min="0"
+                  value={biochemicalData.overallProtein}
+                  placeholder="Заг. білок"
+                  onChange={(e) =>
+                    setBiochemicalData({
+                      ...biochemicalData,
+                      overallProtein: e.target.value,
+                    })
+                  }
+                />{" "}
+                <MacInput
+                  type="number"
+                  value={biochemicalData.creatinin}
+                  min={0}
+                  onChange={(e) =>
+                    setBiochemicalData({
+                      ...biochemicalData,
+                      creatinin: e.target.value,
+                    })
+                  }
+                  placeholder="Креатинін"
+                />
+                <MacInput
+                  type="number"
+                  value={biochemicalData.bloodUrea}
+                  onChange={(e) =>
+                    setBiochemicalData({
+                      ...biochemicalData,
+                      bloodUrea: e.target.value,
+                    })
+                  }
+                  placeholder="Сечовина"
+                />
+                <MacInput
+                  type="number"
+                  min="0"
+                  value={biochemicalData.alt}
+                  placeholder="АлТ"
+                  onChange={(e) =>
+                    setBiochemicalData({
+                      ...biochemicalData,
+                      alt: e.target.value,
+                    })
+                  }
+                />
+                <MacInput
+                  type="number"
+                  min="0"
+                  value={biochemicalData.ast}
+                  placeholder="АсТ"
+                  onChange={(e) =>
+                    setBiochemicalData({
+                      ...biochemicalData,
+                      ast: e.target.value,
+                    })
+                  }
+                />
+                <MacInput
+                  type="number"
+                  min="0"
+                  value={biochemicalData.kalium}
+                  placeholder="Калій"
+                  onChange={(e) =>
+                    setBiochemicalData({
+                      ...biochemicalData,
+                      kalium: e.target.value,
+                    })
+                  }
+                />
+                <MacInput
+                  type="number"
+                  min="0"
+                  value={biochemicalData.natrium}
+                  placeholder="Натрій"
+                  onChange={(e) =>
+                    setBiochemicalData({
+                      ...biochemicalData,
+                      natrium: e.target.value,
+                    })
+                  }
+                />
+                <MacInput
+                  type="number"
+                  min="0"
+                  value={biochemicalData.calcium}
+                  placeholder="Кальцій"
+                  onChange={(e) =>
+                    setBiochemicalData({
+                      ...biochemicalData,
+                      calcium: e.target.value,
+                    })
+                  }
+                />
+              </p>
+            ) : null}
 
-            {showHiddenFieldsLine && (
-              <>
-                <p className="flexi">
-                  <div className="label" style={{ fontWeight: "bold" }}>
-                    Не відображати:
-                  </div>{" "}
-                  <div className="label">Загальний аналіз крові</div>
-                  <input
-                    className="checkbox"
-                    type="checkbox"
-                    value={analyseHiddenFields.bloodTestHidden}
-                    onChange={() =>
-                      setAnalyseHiddenFields({
-                        ...analyseHiddenFields,
-                        bloodTestHidden: !analyseHiddenFields.bloodTestHidden,
-                      })
-                    }
-                    checked={analyseHiddenFields.bloodTestHidden}
-                  />
-                  <div className="label">Загальний аналіз сечі</div>
-                  <input
-                    className="checkbox"
-                    type="checkbox"
-                    value={analyseHiddenFields.urineHidden}
-                    onChange={() =>
-                      setAnalyseHiddenFields({
-                        ...analyseHiddenFields,
-                        urineHidden: !analyseHiddenFields.urineHidden,
-                      })
-                    }
-                    checked={analyseHiddenFields.urineHidden}
-                  />
-                  <div className="label">Глюкоза крові</div>
-                  <input
-                    className="checkbox"
-                    type="checkbox"
-                    value={analyseHiddenFields.glucoseHidden}
-                    onChange={() =>
-                      setAnalyseHiddenFields({
-                        ...analyseHiddenFields,
-                        glucoseHidden: !analyseHiddenFields.glucoseHidden,
-                      })
-                    }
-                    checked={analyseHiddenFields.glucoseHidden}
-                  />
-                </p>
-              </>
-            )}
+            <p className="flexi">
+              <div className="label" style={{ fontWeight: "bold" }}>
+                Не відображати:
+              </div>{" "}
+              <div className="label">Загальний аналіз крові</div>
+              <input
+                className="checkbox"
+                type="checkbox"
+                value={analyseHiddenFields.bloodTestHidden}
+                onChange={() =>
+                  setAnalyseHiddenFields({
+                    ...analyseHiddenFields,
+                    bloodTestHidden: !analyseHiddenFields.bloodTestHidden,
+                  })
+                }
+                checked={analyseHiddenFields.bloodTestHidden}
+              />
+              <div className="label">Загальний аналіз сечі</div>
+              <input
+                className="checkbox"
+                type="checkbox"
+                value={analyseHiddenFields.urineHidden}
+                onChange={() =>
+                  setAnalyseHiddenFields({
+                    ...analyseHiddenFields,
+                    urineHidden: !analyseHiddenFields.urineHidden,
+                  })
+                }
+                checked={analyseHiddenFields.urineHidden}
+              />
+              <div className="label">Глюкоза крові</div>
+              <input
+                className="checkbox"
+                type="checkbox"
+                value={analyseHiddenFields.glucoseHidden}
+                onChange={() =>
+                  setAnalyseHiddenFields({
+                    ...analyseHiddenFields,
+                    glucoseHidden: !analyseHiddenFields.glucoseHidden,
+                  })
+                }
+                checked={analyseHiddenFields.glucoseHidden}
+              />
+              <div className="label">Біохімічний аналіз крові</div>
+              <input
+                className="checkbox"
+                type="checkbox"
+                value={analyseHiddenFields.biochemicalHidden}
+                onChange={() =>
+                  setAnalyseHiddenFields({
+                    ...analyseHiddenFields,
+                    biochemicalHidden: !analyseHiddenFields.biochemicalHidden,
+                  })
+                }
+                checked={analyseHiddenFields.biochemicalHidden}
+              />
+            </p>
             <p className="flexi smallLine">
               <div className="label" id="firstLine">
                 Виписка
@@ -1132,14 +1240,14 @@ export const PatientItem = ({
                 <label>місцеве</label>
               </div>
             </p>
-              <p className="flexi">
-                <input
+            <p className="flexi">
+              <input
                 className="extraLongInputs"
                 value={finalDiagnosis}
                 onChange={(e) => setFinalDiagnosis(e.target.value)}
                 placeholder="заключний діагноз..."
               />
-                </p>
+            </p>
 
             <p className="sendLine">
               <input className="send" type="submit" value="Відправити" />
@@ -1185,7 +1293,7 @@ export const PatientItem = ({
         </div>
       )}
 
-{showEditDiaryForm && epicrisisDataSend && usedNewDiary ? (
+      {showEditDiaryForm && epicrisisDataSend && usedNewDiary ? (
         <>
           {showEditLine ? (
             <>
@@ -1218,7 +1326,6 @@ export const PatientItem = ({
           ) : null}
         </>
       ) : null}
-
     </>
   );
 };

@@ -10,7 +10,7 @@ export const diseaseList = [
   { name: "перелом носа", value: "noseFracture" },
   { name: "викривлення переділки носа", value: "septumCurvature" },
   { name: "травма м'яких тканин", value: "skinWound" },
-  { name: "новоутвори м'яких тканин", value: "neoplasm" }
+  { name: "новоутвори м'яких тканин", value: "neoplasm" },
 ];
 export const diseaseCodesList = [
   { name: "Оберіть патологію", value: "" },
@@ -23,21 +23,21 @@ export const diseaseCodesList = [
   { name: "перелом носа", value: "перелом носа" },
   { name: "викривлення переділки носа", value: "викривлення переділки носа" },
   { name: "травма м'яких тканин", value: "рана обличчя" },
-  { name: "новоутвори м'яких тканин", value: "новоутвір обличчя" }
+  { name: "новоутвори м'яких тканин", value: "новоутвір обличчя" },
 ];
 export const analyses = [
   {
     name: "загальний аналіз крові + час згортання та тривалість кровотечі",
     feature: "Примітки",
-    urgent: true
+    urgent: true,
   },
   { name: "загальний аналіз сечі", feature: "Примітки", urgent: true },
   {
     name: "аналіз крові на групу та резус-фактор ",
     feature: "Група крові",
-    urgent: false
+    urgent: false,
   },
-  { name: "глюкоза крові", feature: "Примітки", urgent: false }
+  { name: "глюкоза крові", feature: "Примітки", urgent: false },
 ];
 export const doctors = [
   { name: "Особистий лікар", value: "" },
@@ -45,13 +45,14 @@ export const doctors = [
   { name: "ЛІКАР_2", value: "ЛІКАР_2" },
   { name: "ЛІКАР_3", value: "ЛІКАР_3" },
 ];
-export const initialExaminations = 'Загальний аналіз крові,Загальний аналіз сечі,Глюкоза крові';
+export const initialExaminations =
+  "Загальний аналіз крові,Загальний аналіз сечі,Глюкоза крові";
 export const start2List = ["день", "тиждень", "місяць", "рік"];
 export const conditionList = [
   "задовільний",
   "близький до задовільного",
   "середнього ступеню важкості",
-  "важкий"
+  "важкий",
 ];
 
 export const drugName1List = [
@@ -70,7 +71,7 @@ export const drugName1List = [
   { name: "Оспамокс(250мг)", value: "Оспамокс" },
   { name: "Цефікс", value: "Цефікс" },
   { name: "Метрогіл", value: "Метрогіл" },
-  { name: "Зитрокс (250мг)", value: "Зитрокс" }
+  { name: "Зитрокс (250мг)", value: "Зитрокс" },
 ];
 export const drugName2List = [
   { name: "Для вуха", value: "" },
@@ -80,7 +81,7 @@ export const drugName2List = [
   { name: "Отіпакс", value: "Отіпакс" },
   { name: "Дроплекс", value: "Дроплекс" },
   { name: "Ототон", value: "Ототон" },
-  { name: "Кандибіотик", value: "Кандибіотик" }
+  { name: "Кандибіотик", value: "Кандибіотик" },
 ];
 export const drugName3List = [
   { name: "Для носа", value: "" },
@@ -107,14 +108,14 @@ export const drugName3List = [
   { name: "Зіпелор", value: "Зіпелор" },
   { name: "Орасепт", value: "Орасепт" },
   { name: "Інгаліпт", value: "Інгаліпт" },
-  { name: "Риномістин", value: "Риномістин" }
+  { name: "Риномістин", value: "Риномістин" },
 ];
 export const drugName4List = [
   { name: "Для горла", value: "" },
   { name: "Тантум верде", value: "Тантум верде" },
   { name: "Зіпелор", value: "Зіпелор" },
   { name: "Інгаліпт", value: "Інгаліпт" },
-  { name: "Орасепт", value: "Орасепт" }
+  { name: "Орасепт", value: "Орасепт" },
 ];
 export const drugName5List = [
   { name: "Інші призначення", value: "" },
@@ -128,7 +129,7 @@ export const drugName5List = [
   { name: "Ентерожерміна форте", value: "Ентерожерміна форте" },
   { name: "Лоратадин", value: "Лоратадин" },
   { name: "Феністил", value: "Феністил" },
-  { name: "L-лізину есцинат", value: "L-лізину есцинат" }
+  { name: "L-лізину есцинат", value: "L-лізину есцинат" },
 ];
 export const anesthetistList = [
   { name: "Анестезіолог", value: "" },
@@ -156,29 +157,29 @@ export const areaList = [
   { value: "твердого піднебіння", name: "тверде піднебіння" },
   { value: "м'якого піднебіння", name: "м'яке піднебіння" },
   { value: "під'язикової ділянки", name: "під'язикова" },
-  { value: "язика", name: "язик" }
+  { value: "язика", name: "язик" },
 ];
 export const sideList = [
   { value: "", name: "сторона" },
   { value: " ліворуч", name: "ліва" },
-  { value: " праворуч", name: "права" }
+  { value: " праворуч", name: "права" },
 ];
 export const offsetList = [
   { value: "", name: "зміщення в сторону" },
   { value: " ліворуч", name: "ліва" },
-  { value: " праворуч", name: "права" }
+  { value: " праворуч", name: "права" },
 ];
 export const hearingLossTypeList = [
   { value: "", name: "вид приглуховатості" },
   { value: "гостра", name: "гостра" },
   { value: "підгостра", name: "підгостра" },
-  { value: "хронічна", name: "хронічна" }
+  { value: "хронічна", name: "хронічна" },
 ];
 export const hearingLossDegreeList = [
   { value: "", name: "ступінь" },
   { value: "I", name: "I" },
   { value: "II", name: "II" },
-  { value: "III", name: "III" }
+  { value: "III", name: "III" },
 ];
 export const injuryReasonList = [
   { name: "причина травми", value: "падіння та удару до підлоги" },
@@ -186,17 +187,17 @@ export const injuryReasonList = [
   { name: "удар до краю мебелі", value: "удару до краю мебелі" },
   {
     name: "падіння та удар до підлоги",
-    value: "падіння та удару до підлоги"
+    value: "падіння та удару до підлоги",
   },
   { name: "зіткнення з іншою дитиною", value: "зіткнення з іншою дитиною" },
   { name: "укусу домашнього собаки", value: "укусу домашнього собаки" },
-  { name: "укусу невідомого собаки", value: "укусу невідомого собаки" }
+  { name: "укусу невідомого собаки", value: "укусу невідомого собаки" },
 ];
 export const woundSurfaceList = [
   { value: "", name: "поверхня" },
   { value: "шкіра", name: "шкіра" },
   { value: "слизова оболонка", name: "слизова оболонка" },
-  { value: "червона облямівка", name: "червона облямівка" }
+  { value: "червона облямівка", name: "червона облямівка" },
 ];
 export const woundTypeList = [
   { value: "", name: "вид рани" },
@@ -207,7 +208,7 @@ export const woundTypeList = [
   { value: "скальповано-рвана", name: "скальповано-рвана" },
   { value: "рублена", name: "рублена" },
   { value: "колота", name: "колота" },
-  { value: "скальпована", name: "скальпована" }
+  { value: "скальпована", name: "скальпована" },
 ];
 export const woundFormList = [
   { name: "неправильна форма", value: "неправильної" },
@@ -216,72 +217,72 @@ export const woundFormList = [
   { name: "серпоподібна", value: "серпоподібної" },
   { name: "зигзагоподібна", value: "зигзагоподібної" },
   { name: "округла", value: "округлої" },
-  { name: "ромбоподібна", value: "ромбоподібної" }
+  { name: "ромбоподібна", value: "ромбоподібної" },
 ];
 export const woundLedgesList = [
   { value: "Краї рани рівні", name: "краї рівні" },
-  { value: "Краї рани нерівні", name: "краї нерівні" }
+  { value: "Краї рани нерівні", name: "краї нерівні" },
 ];
 export const woundBleedingList = [
   { value: "незначна", name: "кровоточивість незначна" },
   { value: "значна", name: "кровоточивість значна" },
-  { value: "відсутня", name: "кровоточивість відсутня" }
+  { value: "відсутня", name: "кровоточивість відсутня" },
 ];
 export const woundAliensList = [
   {
     value: "Візуально сторонніх тіл в рані не виявлено",
-    name: "забруднення відсутнє"
+    name: "забруднення відсутнє",
   },
   { value: "Рана забруднена брудом", name: "брудом" },
   { value: "Рана забруднена землею", name: "землею" },
   { value: "Рана забруднена піском", name: "піском" },
   { value: "Рана забруднена дрібним камінням", name: "дрібним камінням" },
-  { value: "Рана забруднена залишками фарби", name: "залишками фарби" }
+  { value: "Рана забруднена залишками фарби", name: "залишками фарби" },
 ];
 export const sutureTypeList = [
   { value: "вузловими швами", name: "вузлові шви" },
   { value: "матрацними швами", name: "матрацні" },
-  { value: "внутрішньошкірним безперервним швом", name: "внутрішньошкірний" }
+  { value: "внутрішньошкірним безперервним швом", name: "внутрішньошкірний" },
 ];
 export const sutureMaterialList = [
   { value: "PDS ", name: "PDS" },
   { value: "Vicryl ", name: "Vicryl" },
   { value: "Maxon ", name: "Maxon" },
-  { value: "Novosyn ", name: "Novosyn" }
+  { value: "Novosyn ", name: "Novosyn" },
 ];
 export const sutureSizeList = [
   { value: "5-0 ", name: "5-0" },
   { value: "3-0 ", name: "3-0" },
   { value: "4-0 ", name: "4-0" },
-  { value: "6-0 ", name: "6-0" }
+  { value: "6-0 ", name: "6-0" },
 ];
 export const abscessTypeList = [
   { name: "абсцес", value: "абсцес" },
   { name: "флегмона", value: "флегмона" },
   { name: "лімфаденіт", value: "лімфаденіт" },
-  { name: "фурункул", value: "фурункул" }
+  { name: "фурункул", value: "фурункул" },
 ];
 
 export const abscessAreaList = [
   { value: "", name: "ділянка" },
   {
     value: "в ділянці сонного трикутника",
-    name: "ділянка сонного трикутника"
+    name: "ділянка сонного трикутника",
   },
   { value: "привушної", name: "привушна" },
   { value: "лобної", name: "лобна" },
-  { value: "позадувушної", name: "позадувушна" }
+  { value: "позадувушної", name: "позадувушна" },
 ];
 export const abscessReasonList = [
   { name: "причина", value: "" },
   { name: "лімфовузол", value: "лімфовузол" },
-  { name: "відсутня", value: "" }
+  { name: "відсутня", value: "" },
 ];
 export const neoplasmTypeList = [
   { name: "новоутвір", value: "новоутвір" },
   { name: "папілома", value: "папілома" },
   { name: "фіброма", value: "фіброма" },
-  { name: "атерома", value: "атерома" }
+  { name: "атерома", value: "атерома" },
 ];
 export const growthRateList = [
   { name: "темп росту", value: "" },
@@ -289,12 +290,12 @@ export const growthRateList = [
   { name: "поволі", value: "поволі" },
   {
     name: "спочатку швидко, потім поволі",
-    value: "спочатку швидко, потім поволі"
+    value: "спочатку швидко, потім поволі",
   },
   {
     name: "спочатку поволі, потім швидко",
-    value: "спочатку поволі, потім швидко"
-  }
+    value: "спочатку поволі, потім швидко",
+  },
 ];
 export const neoplasmFormList = [
   { name: "форма", value: "" },
@@ -302,21 +303,21 @@ export const neoplasmFormList = [
   { name: "овальна", value: "овальної" },
   { name: "циліндрична", value: "циліндричної" },
   { name: "неправильна", value: "неправильної" },
-  { name: "конусоподібна", value: "конусоподібної" }
+  { name: "конусоподібна", value: "конусоподібної" },
 ];
 export const neoplasmBorderList = [
   { name: "чіткі межі", value: "з чіткими межами" },
   { name: "розмиті межі", value: "з розмитими межами" },
-  { name: "нерівні краї", value: "з нерівними краями" }
+  { name: "нерівні краї", value: "з нерівними краями" },
 ];
 export const neoplasmMovabilityList = [
   { name: "рухомий", value: "рухомий" },
   { name: "нерухомий", value: "нерухомий" },
-  { name: "обмежено рухомий", value: "обмежено рухомий" }
+  { name: "обмежено рухомий", value: "обмежено рухомий" },
 ];
 export const neoplasmPoignancyList = [
   { name: "безболісний", value: "безболісний" },
-  { name: "болісний", value: "болісний" }
+  { name: "болісний", value: "болісний" },
 ];
 export const neoplasmConsistanceList = [
   { name: "щільна", value: "щільної" },
@@ -324,12 +325,12 @@ export const neoplasmConsistanceList = [
   { name: "еластична", value: "еластичної" },
   { name: "щільно-еластична", value: "щільно-еластичної" },
   { name: "мяко-еластична", value: "м'яко-еластичної" },
-  { name: "тістоподібна", value: "тістоподібної" }
+  { name: "тістоподібна", value: "тістоподібної" },
 ];
 export const neoplasmSurfaceList = [
   { value: "шкіра", name: "шкіра" },
   { value: "слизова оболонка", name: "слизова оболонка" },
-  { value: "червона облямівка", name: "червона облямівка" }
+  { value: "червона облямівка", name: "червона облямівка" },
 ];
 export const neoplasmColorList = [
   { name: "забарвлення", value: "" },
@@ -337,7 +338,7 @@ export const neoplasmColorList = [
   { name: "темно-бурий", value: "темно-бурого" },
   { name: "синюшний", value: "синюшного" },
   { name: "темно-коричневий", value: "темно-коричневого" },
-  { name: "блідо-рожевий", value: "блідо-рожевого" }
+  { name: "блідо-рожевий", value: "блідо-рожевого" },
 ];
 export const uColorList = [
   "жовта",
@@ -346,36 +347,20 @@ export const uColorList = [
   "помаранчева",
   "бліда",
   "рожева",
-  "темно-рожева"
+  "темно-рожева",
 ];
 export const uOpacityList = ["прозора", "непрозора", "слабко-мутна", "мутна"];
-export const enterobiozList = [
-  {
-    name: "яйця гостриків не виявлено",
-    value: " яйця гостриків не виявлено"
-  },
-  { name: "яйця гостриків виявлено", value: " яйця гостриків виявлено" },
-  { name: "не визначався", value: "не визначався" }
-];
-export const dungList = [
-  {
-    name: "яйця гельмінтів не виявлено",
-    value: "яйця гельмінтів не виявлено"
-  },
-  { name: "яйця гельмінтів виявлено", value: "яйця гельмінтів виявлено" },
-  { name: "не визначався", value: "не визначався" }
-];
 export const bloodGroupList = [
   { name: "група крові", value: "" },
   { name: "I(0)", value: "I(0)" },
   { name: "II(A)", value: "II(A)" },
   { name: "III(B)", value: "III(B)" },
-  { name: "IV(AB)", value: "IV(AB)" }
+  { name: "IV(AB)", value: "IV(AB)" },
 ];
 export const rezusFactorList = [
   { name: "резус-фактор", value: "" },
   { name: "+", value: "+" },
-  { name: "-", value: "-" }
+  { name: "-", value: "-" },
 ];
 
 export const editTypeList = [
@@ -413,7 +398,7 @@ export const editTypeList = [
   { value: "recommendations", name: "рекомендації" },
   { value: "shortStatusContent", name: "стан ЛОР-органів(епікриз)" },
   { value: "secondOperation", name: "друга операція" },
-  { value: "otherExaminations", name: "інші обстеження" }
+  { value: "otherExaminations", name: "інші обстеження" },
 ];
 export const bloodTestExponents = [
   "Hb, г/л",
@@ -424,7 +409,17 @@ export const bloodTestExponents = [
   "еоз, %",
   "лімф, %",
   "мон, %",
-  "ШОЕ, мм/год"
+  "ШОЕ, мм/год",
+];
+export const biochemicalTestExponents = [
+  "Загальний білок, г/л",
+  "Креатинін, мкмоль/л",
+  "Сечовина, ммоль/л",
+  "АлТ, Од/л",
+  "АсТ, Од/л",
+  "Калій, ммоль/л",
+  "Натрій, ммоль/л",
+  "Кальцій, ммоль/л",
 ];
 export const urineTestExponents = [
   "Колір",
@@ -435,18 +430,18 @@ export const urineTestExponents = [
   "Лейкоцити",
   "Плоский епіт.",
   "Перехідний епіт.",
-  "Інше"
+  "Інше",
 ];
 export const examinations = [
   "Загальний аналіз крові",
   "Загальний аналіз сечі",
   "Глюкоза крові",
   "Зішкріб на ентеробіоз",
-  "Кал на яйця глистів"
+  "Кал на яйця глистів",
 ];
 export const baseIndications = [
   "Згоду батьків до операції отримано.",
-  "Протипоказання до операції відсутні."
+  "Протипоказання до операції відсутні.",
 ];
 
 export const days = [
@@ -460,7 +455,7 @@ export const days = [
   "7 днів",
   "8 днів",
   "9 днів",
-  "10 днів"
+  "10 днів",
 ];
 export const letters = [
   { name: "Літера...", value: "" },
@@ -472,13 +467,13 @@ export const letters = [
   { name: "Е", value: "Е" },
   { name: "Є", value: "Є" },
   { name: "Ж", value: "Ж" },
-  { name: "З", value: "З" }
+  { name: "З", value: "З" },
 ];
 export const townList = [
   {
     value: "",
     name: "оберіть місто",
-    streets: [{ value: "", name: "оберіть вулицю" }]
+    streets: [{ value: "", name: "оберіть вулицю" }],
   },
   {
     value: "Тернопіль",
@@ -746,8 +741,8 @@ export const townList = [
       { name: "Яреми" },
       { name: "Яремчука" },
       { name: "Ярмуша" },
-      { name: "Ясна" }
-    ]
+      { name: "Ясна" },
+    ],
   },
   {
     value: "Бережани",
@@ -860,8 +855,8 @@ export const townList = [
       { name: "Чорновола" },
       { name: "Шашкевича" },
       { name: "Шевченка" },
-      { name: "Шептицького" }
-    ]
+      { name: "Шептицького" },
+    ],
   },
   {
     value: "Борщів",
@@ -945,8 +940,8 @@ export const townList = [
       { name: "Шкільна" },
       { name: "Шухевича" },
       { name: "Ярослава Кондри" },
-      { name: "Ярослава Мудрого" }
-    ]
+      { name: "Ярослава Мудрого" },
+    ],
   },
   {
     value: "Бучач",
@@ -1028,8 +1023,8 @@ export const townList = [
       { name: "Шевченка" },
       { name: "Шкільна" },
       { name: "Шухевича" },
-      { name: "Яворницького" }
-    ]
+      { name: "Яворницького" },
+    ],
   },
   {
     value: "Заліщики, ",
@@ -1099,8 +1094,8 @@ export const townList = [
       { name: "Шевченка" },
       { name: "Шептицького" },
       { name: "Шкільна" },
-      { name: "Шухевича" }
-    ]
+      { name: "Шухевича" },
+    ],
   },
   {
     value: "Збараж",
@@ -1232,8 +1227,8 @@ export const townList = [
       { name: "Яблунева" },
       { name: "Яворницького" },
       { name: "Ярослава Мудрого" },
-      { name: "Ярославни" }
-    ]
+      { name: "Ярославни" },
+    ],
   },
   {
     value: "Зборів",
@@ -1287,8 +1282,8 @@ export const townList = [
       { name: "Травнева" },
       { name: "Чорновола" },
       { name: "Чумацька" },
-      { name: "Шевченка" }
-    ]
+      { name: "Шевченка" },
+    ],
   },
   {
     value: "Копичинці",
@@ -1322,8 +1317,8 @@ export const townList = [
       { name: "Чортківська" },
       { name: "Шашкевича" },
       { name: "Шевченка" },
-      { name: "Шопена" }
-    ]
+      { name: "Шопена" },
+    ],
   },
   {
     value: "Кременець",
@@ -1430,8 +1425,8 @@ export const townList = [
       { name: "Шумська" },
       { name: "Ювілейна" },
       { name: "Юліуша Словацького" },
-      { name: "Ясна" }
-    ]
+      { name: "Ясна" },
+    ],
   },
   {
     value: "Ланівці",
@@ -1494,8 +1489,8 @@ export const townList = [
       { name: "Хлібна" },
       { name: "Хлібна-бічна" },
       { name: "Шевченка" },
-      { name: "Ювілейна" }
-    ]
+      { name: "Ювілейна" },
+    ],
   },
   {
     value: "Монастириська",
@@ -1536,8 +1531,8 @@ export const townList = [
       { name: "Чорновола" },
       { name: "Шевченка" },
       { name: "Шкільна" },
-      { name: "Шухевича" }
-    ]
+      { name: "Шухевича" },
+    ],
   },
   {
     value: "Підгайці",
@@ -1575,8 +1570,8 @@ export const townList = [
       { name: "Шептицького" },
       { name: "Шкільна" },
       { name: "Юрдика-горішня" },
-      { name: "Яворського" }
-    ]
+      { name: "Яворського" },
+    ],
   },
   {
     value: "Почаїв",
@@ -1667,8 +1662,8 @@ export const townList = [
       { name: "Шкільна" },
       { name: "Юридична" },
       { name: "Ярослава Мудрого" },
-      { name: "Ясна" }
-    ]
+      { name: "Ясна" },
+    ],
   },
   {
     value: "Скалат",
@@ -1711,8 +1706,8 @@ export const townList = [
       { name: "Шашкевича" },
       { name: "Шевченка" },
       { name: "Шептицького" },
-      { name: "Шухевича" }
-    ]
+      { name: "Шухевича" },
+    ],
   },
   {
     value: "Теребовля",
@@ -1792,8 +1787,8 @@ export const townList = [
       { name: "Чехова" },
       { name: "Шевченка" },
       { name: "Шишкіна" },
-      { name: "Ювілейна" }
-    ]
+      { name: "Ювілейна" },
+    ],
   },
   {
     value: "Хоростків",
@@ -1829,8 +1824,8 @@ export const townList = [
       { name: "Цукрова" },
       { name: "Чорновола" },
       { name: "Шевченка" },
-      { name: "Шкільна" }
-    ]
+      { name: "Шкільна" },
+    ],
   },
   {
     value: "Чортків",
@@ -1985,8 +1980,8 @@ export const townList = [
       { name: "Юрчинських" },
       { name: "Ягільницька" },
       { name: "Яремчука" },
-      { name: "Ясна" }
-    ]
+      { name: "Ясна" },
+    ],
   },
   {
     value: "Шумськ",
@@ -2026,15 +2021,15 @@ export const townList = [
       { name: "Уласа Самчука" },
       { name: "Чирянська" },
       { name: "Шевченка" },
-      { name: "Ювілейна" }
-    ]
-  }
+      { name: "Ювілейна" },
+    ],
+  },
 ];
 export const districtList = [
   { value: "", name: "оберіть район" },
   { value: "Тернопільський район", name: "Тернопільський" },
   { value: "Кременецький район", name: "Кременецький" },
-  { value: "Чортківський район", name: "Чортківський" }
+  { value: "Чортківський район", name: "Чортківський" },
 ];
 export const maleNames = [
   "Аркадій",
@@ -2140,7 +2135,7 @@ export const maleNames = [
   "Юхим",
   "Юліан",
   "Ян",
-  "Микола"
+  "Микола",
   // "",
 ];
 
@@ -2148,24 +2143,24 @@ export const threeSideAnotherList = [
   { value: "", name: "сторона" },
   { value: "лівобічна", name: "лівобічна" },
   { value: "правобічна", name: "правобічна" },
-  { value: "двобічна", name: "двобічна" }
+  { value: "двобічна", name: "двобічна" },
 ];
 export const threeSideList = [
   { value: "", name: "сторона" },
   { value: "ліворуч", name: "ліва" },
   { value: "праворуч", name: "права" },
-  { value: "двобічний", name: "двобічний" }
+  { value: "двобічний", name: "двобічний" },
 ];
 
 export const otitisTypeOperationList = [
   { value: "paracentesis", name: "парацентез" },
-  { value: "shunting", name: "шунтування" }
+  { value: "shunting", name: "шунтування" },
 ];
 export const mastoiditisOperationTypeList = [
   { value: "paracentesis", name: "парацентез" },
   { value: "shunting", name: "шунтування" },
   { value: "mastoidEctomia", name: "мастоїдектомія" },
-  { value: "mastoidEctomiaAndShunting", name: "мастоїдектомія+шунтування" }
+  { value: "mastoidEctomiaAndShunting", name: "мастоїдектомія+шунтування" },
 ];
 
 export const sinusitisTypeList = [
@@ -2174,55 +2169,55 @@ export const sinusitisTypeList = [
   { value: "etmoiditis", name: "етмоїдит" },
   { value: "frontitis", name: "фронтит" },
   { value: "hemisinusitis", name: "гемісинусит" },
-  { value: "pansinusitis", name: "пансинусит" }
+  { value: "pansinusitis", name: "пансинусит" },
   // { value: "", name: "" },
 ];
 export const sinusitisVarietyList = [
   { value: "бактерійний", name: "бактерійний" },
   { value: "вірусний", name: "вірусний" },
-  { value: "поствірусний", name: "поствірусний" }
+  { value: "поствірусний", name: "поствірусний" },
 ];
 export const acuteOtitisTypeList = [
   { value: "гнійний", name: "гнійний" },
-  { value: "катаральний", name: "катаральний" }
+  { value: "катаральний", name: "катаральний" },
 ];
 export const usefulLinks = [
   {
     title: "Перевірити лікарняний",
     link: "https://portal.pfu.gov.ua/sidebar/Templates/IncapListsSearch",
     iconName: "trueAnswer",
-    color: "green"
+    color: "green",
   },
   {
     title: "Код-помічник",
     link: "https://olehkuts.github.io/code_helper/",
     iconName: "helper",
-    color: "black"
+    color: "black",
   },
   {
     title: "Довідка до школи",
     link: "https://OlehKuts.github.io./medical_certification",
     iconName: "document",
-    color: "sienna"
+    color: "sienna",
   },
   {
     title: "Направлення на аналізи",
     link: "https://OlehKuts.github.io./analyses_directions",
     iconName: "examination",
-    color: "coral"
+    color: "coral",
   },
   {
     title: "Операційний список",
     link: "https://OlehKuts.github.io./operational_list",
     iconName: "list",
-    color: "black"
+    color: "black",
   },
   {
     title: "Календар для операцій",
     link: "https://OlehKuts.github.io./upgraded_calendar",
     iconName: "calendar",
-    color: "royalblue"
-  }
+    color: "royalblue",
+  },
 ];
 export const dayTemplate = [
   {

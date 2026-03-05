@@ -12,15 +12,12 @@ import { ParamsForm } from "./components/ParamsForm";
 import {
   patientsReducer,
   initialState,
-  PATIENTS_ACTIONS
+  PATIENTS_ACTIONS,
 } from "./patientsReducer";
 import { doctors } from "./database";
 import { StatsTable } from "./components/StatsTable";
 import { UpcomingEvents } from "./components/UpcomingEvents";
-import {
-  fullNameCutter,
-  setOneTrueInArray
-} from "./utils/utils";
+import { fullNameCutter, setOneTrueInArray } from "./utils/utils";
 import { initialParams } from "./initialParams";
 import { UsefulLinks } from "./components/UsefulLinks";
 import { Clock } from "./components/Clock";
@@ -29,12 +26,11 @@ import { NewDiary } from "./components/newDiary";
 import useCopyToClipboard from "./components/hooks/useCopyToClipboard";
 import { isJsonString, exceedReminder } from "./utils/utils";
 
-
 export const Main = () => {
   // localStorage.setItem("basicParams", JSON.stringify(initialParams));
   const basicParams = JSON.parse(localStorage.getItem("basicParams_lor"));
   const [currentParams, setCurrentParams] = useState(
-    basicParams || initialParams
+    basicParams || initialParams,
   );
   const changeParams = (newParams) => {
     localStorage.setItem("basicParams_lor", JSON.stringify(newParams));
@@ -48,7 +44,7 @@ export const Main = () => {
     false,
     false,
     false,
-    false
+    false,
   ]);
 
   const formClick = () => {
@@ -67,7 +63,7 @@ export const Main = () => {
     setShowMenuPart(setOneTrueInArray(showMenuPart, 4));
   };
   const [patients, dispatch] = useReducer(patientsReducer, initialState());
-// import-export
+  // import-export
   const [showImport, setShowImport] = useState(false);
   const [copiedToClipboard, { success }] = useCopyToClipboard();
   const [importedData, setImportedData] = useState("");
@@ -81,12 +77,12 @@ export const Main = () => {
       payload: { importedPatients: JSON.parse(importedData) },
     });
     alert("Дані успішно імпортовано");
-    setShowImport(false)
+    setShowImport(false);
   };
   const exportData = () => {
     copiedToClipboard(JSON.stringify(patients));
     alert(
-      "Дані про медичні карти пацієнтів скопійовано в буфер обміну. Збережіть їх в текстовому документі."
+      "Дані про медичні карти пацієнтів скопійовано в буфер обміну. Збережіть їх в текстовому документі.",
     );
   };
 
@@ -179,7 +175,7 @@ export const Main = () => {
     spokenRight,
     whisperRight,
     spokenLeft,
-    whisperLeft
+    whisperLeft,
   ) => {
     dispatch({
       type: PATIENTS_ACTIONS.ADD,
@@ -271,7 +267,7 @@ export const Main = () => {
       spokenRight,
       whisperRight,
       spokenLeft,
-      whisperLeft
+      whisperLeft,
     });
     listClick();
   };
@@ -298,14 +294,13 @@ export const Main = () => {
     uEp1,
     uEp2,
     glucose,
-    enterobioz,
-    dung,
     bloodGroup,
     rezusFactor,
     uOther,
     wasViolation,
     finalDiagnosis,
-    analyseHiddenFields
+    analyseHiddenFields,
+    biochemicalData,
   ) => {
     return dispatch({
       type: PATIENTS_ACTIONS.DISCHARGEADD,
@@ -330,14 +325,13 @@ export const Main = () => {
       uEp1,
       uEp2,
       glucose,
-      enterobioz,
-      dung,
       bloodGroup,
       rezusFactor,
       uOther,
       wasViolation,
       finalDiagnosis,
-      analyseHiddenFields
+      analyseHiddenFields,
+      biochemicalData,
     });
   };
   const onOperationAdd = (
@@ -351,7 +345,7 @@ export const Main = () => {
     anesthetist,
     anestesiaType,
     operationDataSend,
-    finalDiagnosis
+    finalDiagnosis,
   ) => {
     dispatch({
       type: PATIENTS_ACTIONS.OPERATIONADD,
@@ -365,7 +359,7 @@ export const Main = () => {
       anesthetist,
       anestesiaType,
       operationDataSend,
-      finalDiagnosis
+      finalDiagnosis,
     });
   };
   useEffect(() => {
@@ -374,7 +368,7 @@ export const Main = () => {
   }, [patients]);
   useEffect(() => {
     exceedReminder(patients.length);
-    }, [patients]);
+  }, [patients]);
   const pagesArray = numArrayCreator(1, Math.ceil(patients.length / 12));
   const [limit, setLimit] = useState({ low: 0, high: 11 });
   const [cur, setCur] = useState(patients[0]);
@@ -393,7 +387,7 @@ export const Main = () => {
       type: PATIENTS_ACTIONS.EXTRACTADD,
       _id,
       birthDate,
-      residence
+      residence,
     });
   };
   const onEditAdd = (_id, editType, editedValue) => {
@@ -401,7 +395,7 @@ export const Main = () => {
       type: PATIENTS_ACTIONS.EDIT,
       _id,
       editType,
-      editedValue
+      editedValue,
     });
   };
   const [showEditDiaryForm, setShowEditDiaryForm] = useState(false);
@@ -429,7 +423,7 @@ export const Main = () => {
   const getActivity = (members, month, year) => {
     const filteredByDate = patients.filter(
       (item) =>
-        Number(item.startYear) === year && Number(item.startMonth) === month
+        Number(item.startYear) === year && Number(item.startMonth) === month,
     );
     const membersModified = members.map((item) => {
       return { name: item.name, amount: 0 };
@@ -453,7 +447,7 @@ export const Main = () => {
         name: item.name,
         personalCount: personalResult,
         surgeonCount: surgeonResult,
-        assistantCount: assistantResult
+        assistantCount: assistantResult,
       };
     });
     return membersFinal;
@@ -465,21 +459,21 @@ export const Main = () => {
     setRequestMonth(e.target.value);
   };
   const [requestYear, setRequestYear] = useState(
-    Number(initDate.getFullYear())
+    Number(initDate.getFullYear()),
   );
   const onRequestYearChange = (e) => {
     setRequestYear(e.target.value);
   };
   const [statsDoctors, setStatsDoctors] = useState(
-    getActivity(cutDoctors, requestMonth, requestYear)
+    getActivity(cutDoctors, requestMonth, requestYear),
   );
   const onStatsSubmit = (e) => {
     e.preventDefault();
     setStatsDoctors(
-      getActivity(cutDoctors, Number(requestMonth), Number(requestYear))
+      getActivity(cutDoctors, Number(requestMonth), Number(requestYear)),
     );
   };
-console.log(cur.epicrisisDataSend)
+  console.log(cur.epicrisisDataSend);
   return (
     <>
       <div className="navigation">
@@ -546,57 +540,56 @@ console.log(cur.epicrisisDataSend)
       <div className="app">
         {showMenuPart[0] && (
           <>
-            
-              <>
-                <div>
-                  <button
-                    className="btnEffect send"
-                    id="addBtn"
-                    onClick={() => setModalActive(true)}
-                  >
-                    Новий пацієнт
-                  </button>
-                </div>
-                <UpcomingEvents patients={patients} />
-                <UsefulLinks />
+            <>
+              <div>
+                <button
+                  className="btnEffect send"
+                  id="addBtn"
+                  onClick={() => setModalActive(true)}
+                >
+                  Новий пацієнт
+                </button>
+              </div>
+              <UpcomingEvents patients={patients} />
+              <UsefulLinks />
 
+              <div className="importBlock">
+                <button
+                  onClick={exportData}
+                  className="importBlockBtn"
+                  id="exportBtn"
+                >
+                  {success ? "Дані скопійовано" : "Експортувати дані"}
+                </button>
+                <button
+                  onClick={() => setShowImport(true)}
+                  className="importBlockBtn"
+                >
+                  Імпортувати дані
+                </button>
+              </div>
+              <hr />
+              {showImport ? (
                 <div className="importBlock">
-                  <button
-                    onClick={exportData}
-                    className="importBlockBtn"
-                    id="exportBtn"
-                  >
-                    {success ? "Дані скопійовано" : "Експортувати дані"}
-                  </button>
-                  <button
-                    onClick={() => setShowImport(true)}
-                    className="importBlockBtn"
-                  >
-                    Імпортувати дані
-                  </button>
-                </div>
-                <hr />
-                {showImport ? (
-                  <div className="importBlock">
-                    <textarea
-                      placeholder="Вставте сюди дані для імпорту..."
-                      value={importedData}
-                      onChange={(e) => setImportedData(e.target.value)}
-                      cols="100"
-                      rows="30"
-                    />
-                    <div>
-                      <button onClick={onImport}>Підтвердити</button>
-                      <button onClick={() => setShowImport(false)}>
-                        Відмінити
-                      </button>
-                    </div>
-                    <hr />
+                  <textarea
+                    placeholder="Вставте сюди дані для імпорту..."
+                    value={importedData}
+                    onChange={(e) => setImportedData(e.target.value)}
+                    cols="100"
+                    rows="30"
+                  />
+                  <div>
+                    <button onClick={onImport}>Підтвердити</button>
+                    <button onClick={() => setShowImport(false)}>
+                      Відмінити
+                    </button>
                   </div>
-                ) : null}
+                  <hr />
+                </div>
+              ) : null}
 
-                <Clock />
-              </>
+              <Clock />
+            </>
             <MyModal active={modalActive} setActive={setModalActive}>
               <PatientForm {...{ onAdd }} params={currentParams} />
             </MyModal>
@@ -636,30 +629,30 @@ console.log(cur.epicrisisDataSend)
                     patient.disease === ""
                       ? "azure"
                       : patient.disease === "acuteOtitis"
-                      ? "lavender"
-                      : patient.disease === "skinWound"
-                      ? "beige"
-                      : patient.disease === "paratonsilarAbscess"
-                      ? "palegoldenrod"
-                      : patient.disease === "hearingLoss"
-                      ? "seaShell"
-                      : patient.disease === "adenoids"
-                      ? "#CFF0EC"
-                      : patient.disease === "abscess"
-                      ? "mistyRose"
-                      : patient.disease === "septumCurvature"
-                      ? "linen"
-                      : patient.disease === "tonsilitis"
-                      ? "gainsboro"
-                      : patient.disease === "neoplasm"
-                      ? "#D8E1C7"
-                      : patient.disease === "noseFracture"
-                      ? "#E1C6C2"
-                      : patient.disease === "mastoiditis"
-                      ? "#F7DCFF"
-                      : patient.disease === "sinusitis"
-                      ? "#D7FFE4"
-                      : "white"
+                        ? "lavender"
+                        : patient.disease === "skinWound"
+                          ? "beige"
+                          : patient.disease === "paratonsilarAbscess"
+                            ? "palegoldenrod"
+                            : patient.disease === "hearingLoss"
+                              ? "seaShell"
+                              : patient.disease === "adenoids"
+                                ? "#CFF0EC"
+                                : patient.disease === "abscess"
+                                  ? "mistyRose"
+                                  : patient.disease === "septumCurvature"
+                                    ? "linen"
+                                    : patient.disease === "tonsilitis"
+                                      ? "gainsboro"
+                                      : patient.disease === "neoplasm"
+                                        ? "#D8E1C7"
+                                        : patient.disease === "noseFracture"
+                                          ? "#E1C6C2"
+                                          : patient.disease === "mastoiditis"
+                                            ? "#F7DCFF"
+                                            : patient.disease === "sinusitis"
+                                              ? "#D7FFE4"
+                                              : "white"
                     //
                   }
                   border={
@@ -709,7 +702,12 @@ console.log(cur.epicrisisDataSend)
             {cur.usedNewDiary ? (
               <>
                 {cur.diaryList.map((item) => (
-                  <NewDiary key={item.id} patient={cur} currentDay={item} params={currentParams}/>
+                  <NewDiary
+                    key={item.id}
+                    patient={cur}
+                    currentDay={item}
+                    params={currentParams}
+                  />
                 ))}{" "}
               </>
             ) : null}
