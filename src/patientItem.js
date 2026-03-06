@@ -514,28 +514,22 @@ export const PatientItem = ({
             <p className="flexBetween smallLine">
               {" "}
               <MacInput
-                type="number"
-                min="0"
                 max="200"
                 value={hb}
                 placeholder="Hb"
                 onChange={(e) => setHb(e.target.value)}
               />{" "}
               <MacInput
-                type="number"
                 value={er}
                 onChange={(e) => setEr(e.target.value)}
                 placeholder="Er..."
               />
               <MacInput
-                type="number"
                 value={leu}
                 onChange={(e) => setLeu(e.target.value)}
                 placeholder="Leu..."
               />
               <MacInput
-                type="number"
-                min="0"
                 max="100"
                 value={pal}
                 placeholder="Пал"
@@ -543,15 +537,12 @@ export const PatientItem = ({
               />
               <MacInput
                 type="number"
-                min="0"
                 max="100"
                 value={segm}
                 placeholder="Сегм"
                 onChange={(e) => setSegm(e.target.value)}
               />
               <MacInput
-                type="number"
-                min="0"
                 max="100"
                 value={eoz}
                 placeholder="Еоз"
@@ -559,15 +550,11 @@ export const PatientItem = ({
               />
               <MacInput
                 type="number"
-                min="0"
-                max="100"
                 value={limf}
                 placeholder="Лімф"
                 onChange={(e) => setLimf(e.target.value)}
               />
               <MacInput
-                type="number"
-                min="0"
                 max="100"
                 value={rse}
                 placeholder="ШОЕ"
@@ -650,14 +637,12 @@ export const PatientItem = ({
                 placeholder="інше..."
               />
             </p>
-            <p className="flexBetween smallLine">
+            <p className="smallLine flexCenter">
               <div className="label" id="firstLine">
                 Глюкоза
               </div>{" "}
               <MacInput
-                type="number"
                 step="0.1"
-                min="0"
                 max="100"
                 className="shortInputs"
                 value={glucose}
@@ -693,8 +678,6 @@ export const PatientItem = ({
             {planned ? (
               <p className="flexBetween smallLine">
                 <MacInput
-                  type="number"
-                  min="0"
                   value={biochemicalData.overallProtein}
                   placeholder="Заг. білок"
                   onChange={(e) =>
@@ -705,9 +688,7 @@ export const PatientItem = ({
                   }
                 />{" "}
                 <MacInput
-                  type="number"
                   value={biochemicalData.creatinin}
-                  min={0}
                   onChange={(e) =>
                     setBiochemicalData({
                       ...biochemicalData,
@@ -717,7 +698,6 @@ export const PatientItem = ({
                   placeholder="Креатинін"
                 />
                 <MacInput
-                  type="number"
                   value={biochemicalData.bloodUrea}
                   onChange={(e) =>
                     setBiochemicalData({
@@ -728,8 +708,6 @@ export const PatientItem = ({
                   placeholder="Сечовина"
                 />
                 <MacInput
-                  type="number"
-                  min="0"
                   value={biochemicalData.alt}
                   placeholder="АлТ"
                   onChange={(e) =>
@@ -740,8 +718,6 @@ export const PatientItem = ({
                   }
                 />
                 <MacInput
-                  type="number"
-                  min="0"
                   value={biochemicalData.ast}
                   placeholder="АсТ"
                   onChange={(e) =>
@@ -752,8 +728,6 @@ export const PatientItem = ({
                   }
                 />
                 <MacInput
-                  type="number"
-                  min="0"
                   value={biochemicalData.kalium}
                   placeholder="Калій"
                   onChange={(e) =>
@@ -764,8 +738,6 @@ export const PatientItem = ({
                   }
                 />
                 <MacInput
-                  type="number"
-                  min="0"
                   value={biochemicalData.natrium}
                   placeholder="Натрій"
                   onChange={(e) =>
@@ -776,8 +748,6 @@ export const PatientItem = ({
                   }
                 />
                 <MacInput
-                  type="number"
-                  min="0"
                   value={biochemicalData.calcium}
                   placeholder="Кальцій"
                   onChange={(e) =>
@@ -853,8 +823,7 @@ export const PatientItem = ({
               </div>{" "}
               <MacInput
                 style={{ height: "22px" }}
-                type="number"
-                min="1"
+                min={1}
                 max="31"
                 value={lastDay}
                 onChange={(e) => setLastDay(e.target.value)}
@@ -862,7 +831,7 @@ export const PatientItem = ({
               <MacInput
                 style={{ height: "22px" }}
                 type="number"
-                min="1"
+                min={1}
                 max="12"
                 value={lastMonth}
                 placeholder=""
@@ -878,6 +847,7 @@ export const PatientItem = ({
                 onChange={(e) => setLastYear(e.target.value)}
               />
               <MacInput
+                type="text"
                 className="extraLongInputs"
                 value={finalDiagnosis}
                 onChange={(e) => setFinalDiagnosis(e.target.value)}
@@ -915,6 +885,7 @@ export const PatientItem = ({
           <form onSubmit={onExtractSubmit}>
             <p className="flexi">
               <MacInput
+                type="text"
                 style={{ width: "115px" }}
                 value={birthDate}
                 onChange={(e) => setBirthDate(e.target.value)}
@@ -1071,6 +1042,7 @@ export const PatientItem = ({
                     })}
                   </select>
                   <MacInput
+                    type="text"
                     style={{ height: "22px", border: "1px solid black" }}
                     value={residenceFeatures.adress}
                     onChange={(e) =>
@@ -1088,6 +1060,7 @@ export const PatientItem = ({
               <>
                 <div className="flexi">
                   <MacInput
+                    type="text"
                     style={{ width: "350px" }}
                     value={residenceFeatures.fullAdress}
                     onChange={(e) =>
@@ -1118,6 +1091,7 @@ export const PatientItem = ({
             )}
             <p className="flexi">
               <MacInput
+                type="text"
                 style={{ width: "300px" }}
                 value={residence}
                 onChange={(e) => setResidence(e.target.value)}

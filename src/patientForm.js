@@ -45,7 +45,7 @@ import {
   acuteOtitisTypeList,
   hearingLossTypeList,
   hearingLossDegreeList,
-  threeSideAnotherList
+  threeSideAnotherList,
 } from "./database";
 
 export const PatientForm = ({ onAdd, params }) => {
@@ -63,10 +63,8 @@ export const PatientForm = ({ onAdd, params }) => {
   const [showMastoiditisLines, setShowMastoiditisLines] = useState(false);
   const [showHearingLossLines, setShowHearingLossLines] = useState(false);
 
-  const [
-    showParatonsilarAbscessLines,
-    setShowParatonsilarAbscessLines
-  ] = useState(false);
+  const [showParatonsilarAbscessLines, setShowParatonsilarAbscessLines] =
+    useState(false);
   const [showSinusitisLines, setShowSinusitisLines] = useState(false);
   const [showNoseFractureLine, setShowNoseFractureLine] = useState(false);
   const [septumCurvatureLine, setSeptumCurvatureLine] = useState(false);
@@ -83,7 +81,7 @@ export const PatientForm = ({ onAdd, params }) => {
   const surgeons = [{ name: "Хірург", value: "" }].concat(doctors.slice(1));
   const assistants = [
     { name: "Асистент", value: "" },
-    { name: "відсутній", value: "-" }
+    { name: "відсутній", value: "-" },
   ].concat(doctors.slice(1));
 
   const onCancel = () => {
@@ -182,16 +180,16 @@ export const PatientForm = ({ onAdd, params }) => {
   const [assistant, setAssistant] = useState(assistants[0].value);
   const [anesthetist, setAnesthetist] = useState(anesthetistList[0].value);
   const [acuteOtitisType, setAcuteOtitisType] = useState(
-    acuteOtitisTypeList[0].value
+    acuteOtitisTypeList[0].value,
   );
   const [acuteOtitisSide, setAcuteOtitisSide] = useState("");
 
   const [hearingLossType, setHearingLossType] = useState(
-    hearingLossTypeList[0].value
+    hearingLossTypeList[0].value,
   );
   const [hearingLossSide, setHearingLossSide] = useState("");
   const [hearingLossDegree, setHearingLossDegree] = useState(
-    hearingLossDegreeList[0].value
+    hearingLossDegreeList[0].value,
   );
   const [spokenLeft, setSpokenLeft] = useState(">6");
   const [spokenRight, setSpokenRight] = useState(">6");
@@ -201,12 +199,12 @@ export const PatientForm = ({ onAdd, params }) => {
   const [mastoiditisSide, setMastoiditisSide] = useState("");
   const [isOtitisComplication, setIsOtitisComplication] = useState(false);
   const [mastoiditisOperationType, setMastoiditisOperationType] = useState(
-    mastoiditisOperationTypeList[0].value
+    mastoiditisOperationTypeList[0].value,
   );
   const [paratonsilarAbscessSide, setParatonsilarAbscessSide] = useState("");
   const [sinusitisType, setSinusitisType] = useState("");
   const [sinusitisVariety, setSinusitisVariety] = useState(
-    sinusitisVarietyList[0].value
+    sinusitisVarietyList[0].value,
   );
   const [sinusitisSide, setSinusitisSide] = useState("");
   const [woundArea, setWoundArea] = useState(areaList[0].value);
@@ -222,12 +220,12 @@ export const PatientForm = ({ onAdd, params }) => {
   const [woundForm, setWoundForm] = useState(woundFormList[0].value);
   const [woundLedges, setWoundLedges] = useState(woundLedgesList[0].value);
   const [woundBleeding, setWoundBleeding] = useState(
-    woundBleedingList[0].value
+    woundBleedingList[0].value,
   );
   const [woundAliens, setWoundAliens] = useState(woundAliensList[0].value);
   const [sutureType, setSutureType] = useState(sutureTypeList[0].value);
   const [sutureMaterial, setSutureMaterial] = useState(
-    sutureMaterialList[0].value
+    sutureMaterialList[0].value,
   );
   const [sutureSize, setSutureSize] = useState(sutureSizeList[0].value);
   const [anestesiaType, setAnestesiaType] = useState("Загальне");
@@ -238,7 +236,7 @@ export const PatientForm = ({ onAdd, params }) => {
   const [abscessArea, setAbscessArea] = useState(abscessAreaList[0].value);
   const [abscessSide, setAbscessSide] = useState(sideList[0].value);
   const [abscessReason, setAbscessReason] = useState(
-    abscessReasonList[0].value
+    abscessReasonList[0].value,
   );
 
   const [neoplasmType, setNeoplasmType] = useState(neoplasmTypeList[0].value);
@@ -246,28 +244,28 @@ export const PatientForm = ({ onAdd, params }) => {
   const [neoplasmDiameter, setNeoplasmDiameter] = useState(0.1);
   const [neoplasmForm, setNeoplasmForm] = useState(neoplasmFormList[0].value);
   const [neoplasmBorders, setNeoplasmBorders] = useState(
-    neoplasmBorderList[0].value
+    neoplasmBorderList[0].value,
   );
   const [neoplasmMovability, setNeoplasmMovability] = useState(
-    neoplasmMovabilityList[0].value
+    neoplasmMovabilityList[0].value,
   );
   const [neoplasmPoignancy, setNeoplasmPoignancy] = useState(
-    neoplasmPoignancyList[0].value
+    neoplasmPoignancyList[0].value,
   );
   const [neoplasmConsistance, setNeoplasmConsistance] = useState(
-    neoplasmConsistanceList[0].value
+    neoplasmConsistanceList[0].value,
   );
   const [neoplasmArea, setNeoplasmArea] = useState(areaList[0].value);
   const [neoplasmSide, setNeoplasmSide] = useState(sideList[0].value);
   const [neoplasmSurface, setNeoplasmSurface] = useState(
-    neoplasmSurfaceList[0].value
+    neoplasmSurfaceList[0].value,
   );
   const [neoplasmColor, setNeoplasmColor] = useState(
-    neoplasmColorList[0].value
+    neoplasmColorList[0].value,
   );
   const [neoplasmAboveSurface, setNeoplasmAboveSurface] = useState(false);
   const [neoplasmSurfaceAlter, setNeoplasmSurfaceAlter] = useState(false);
-  const [coblation, setCoblation] = useState(false);
+  const [coblation, setCoblation] = useState(true);
   const onCoblationChoise = () => {
     setCoblation(!coblation);
   };
@@ -281,7 +279,7 @@ export const PatientForm = ({ onAdd, params }) => {
     setSeptumCurvatureSide(!septumCurvatureSide);
   };
   const [otitisTypeOperation, setOtitisTypeOperation] = useState(
-    otitisTypeOperationList[0].value
+    otitisTypeOperationList[0].value,
   );
   const [operationFree, setOperationFree] = useState(false);
   const onOperationFreeChange = () => {
@@ -367,7 +365,7 @@ export const PatientForm = ({ onAdd, params }) => {
     }
     if (disease === "hearingLoss" && !operationFree) {
       alert(
-        `При приглухуватості не показано проведення операції, поставте відмітку на прапорці "Без операції"`
+        `При приглухуватості не показано проведення операції, поставте відмітку на прапорці "Без операції"`,
       );
       return;
     }
@@ -476,7 +474,7 @@ export const PatientForm = ({ onAdd, params }) => {
       spokenRight,
       whisperRight,
       spokenLeft,
-      whisperLeft
+      whisperLeft,
     );
     setDisease(diseaseList[0].value);
     setStartDay(initDate.getDate());
@@ -562,7 +560,7 @@ export const PatientForm = ({ onAdd, params }) => {
         surgeon,
         assistant,
         anesthetist,
-        operationTime
+        operationTime,
       ),
     [
       doctor,
@@ -574,8 +572,8 @@ export const PatientForm = ({ onAdd, params }) => {
       surgeon,
       assistant,
       anesthetist,
-      operationTime
-    ]
+      operationTime,
+    ],
   );
 
   return (
@@ -592,7 +590,7 @@ export const PatientForm = ({ onAdd, params }) => {
           <button onClick={onShowForm}>Додати пацієнта</button>
         </div>
       )}
-  
+
       <form onSubmit={onSubmit}>
         {showForm && (
           <div className="mainForm">
@@ -1526,7 +1524,7 @@ export const PatientForm = ({ onAdd, params }) => {
 
             {showAdenoidisLine && (
               <div className="flexi">
-                <div className="label">Кобляційним методом</div>
+                <div className="label">Коблаційним методом</div>
                 <input
                   className="checkbox"
                   type="checkbox"
@@ -1598,5 +1596,5 @@ export const PatientForm = ({ onAdd, params }) => {
 };
 
 PatientForm.propTypes = {
-  onAdd: T.func.isRequired
+  onAdd: T.func.isRequired,
 };
