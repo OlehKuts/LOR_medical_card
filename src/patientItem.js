@@ -24,6 +24,7 @@ export const PatientItem = ({
   idx,
   limit,
   patient,
+  patientsLength,
   onRemove,
   onSetCurrent,
   onDischargeAdd,
@@ -500,7 +501,10 @@ export const PatientItem = ({
           </button>
           <button
             title="Видалити пацієнта"
-            onClick={() => onRemove(_id)}
+            onClick={() => {
+              if (patientsLength < 2) return;
+              onRemove(_id);
+            }}
             id="removeBtn"
           >
             {" "}

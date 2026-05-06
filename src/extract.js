@@ -38,8 +38,6 @@ export const Extract = ({ params, current }) => {
     glucose,
     recommendations,
     urineTest,
-    enterobioz,
-    dung,
     planned,
     bloodGroup,
     otherExaminations,

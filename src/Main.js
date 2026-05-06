@@ -25,6 +25,7 @@ import { numArrayCreator } from "./functions/numArrayCreator";
 import { NewDiary } from "./components/newDiary";
 import useCopyToClipboard from "./components/hooks/useCopyToClipboard";
 import { isJsonString, exceedReminder } from "./utils/utils";
+import { patientTemplate } from "./templates";
 
 export const Main = () => {
   // localStorage.setItem("basicParams", JSON.stringify(initialParams));
@@ -371,7 +372,9 @@ export const Main = () => {
   }, [patients]);
   const pagesArray = numArrayCreator(1, Math.ceil(patients.length / 12));
   const [limit, setLimit] = useState({ low: 0, high: 11 });
-  const [cur, setCur] = useState(patients[0]);
+  const [cur, setCur] = useState(() =>
+    patients.length ? patients[0] : patientTemplate,
+  );
 
   const inputRef = useRef("");
 
@@ -610,6 +613,7 @@ export const Main = () => {
             <div id="patientList">
               {filteredPatients.map((patient, idx) => (
                 <PatientItem
+                  patientsLength={patients?.length}
                   key={patient._id}
                   idx={idx}
                   limit={limit}

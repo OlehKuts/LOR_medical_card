@@ -36,8 +36,6 @@ export const Epicrisis = ({ params, current }) => {
     secondOperation,
     urineTest,
     glucose,
-    enterobioz,
-    dung,
     otherExaminations,
     wasViolation,
     rezusFactor,
